@@ -22,7 +22,7 @@ function ShowNotification(text)
 end
 
 RegisterCommand(refillCommand, function(source, args, rawCommand)		
-    local ped = GetPlayerPed(-1)
+    local ped = PlayerPedId()
 	if PoliceVehicle then 
     	if IsPedInAnyPoliceVehicle(ped, true) then
         	taserCartsLeft = maxTaserCarts
@@ -42,7 +42,7 @@ end)
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
-        local ped = GetPlayerPed(-1)
+        local ped = PlayerPedId(-1)
         local taserModel = GetHashKey("WEAPON_STUNGUN")
 
         if not HasStreamedTextureDictLoaded("mpweaponsgang0") then
